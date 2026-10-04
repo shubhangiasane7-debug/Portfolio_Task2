@@ -1,0 +1,1152 @@
+/* =========================================================
+   ADVANCED CSS3 & RESPONSIVE ARCHITECTURE
+   Mobile-First Portfolio Design
+========================================================= */
+
+
+/* =========================================================
+   1. CSS VARIABLES
+========================================================= */
+
+:root {
+
+    --primary-color: #172554;
+    --secondary-color: #2563eb;
+    --accent-color: #7c3aed;
+
+    --background-color: #f7f9fc;
+    --surface-color: #ffffff;
+
+    --text-color: #1f2937;
+    --muted-text: #64748b;
+
+    --border-color: #dbe2ea;
+
+    --white: #ffffff;
+    --black: #000000;
+
+    --focus-color: #ffbf00;
+
+    --shadow:
+        0 8px 25px rgba(0, 0, 0, 0.10);
+
+    --radius: 12px;
+
+    --transition:
+        0.3s ease;
+
+    --max-width:
+        1200px;
+}
+
+
+/* =========================================================
+   2. DARK MODE VARIABLES
+========================================================= */
+
+.dark-mode {
+
+    --background-color: #0f172a;
+
+    --surface-color: #1e293b;
+
+    --text-color: #f8fafc;
+
+    --muted-text: #cbd5e1;
+
+    --border-color: #475569;
+
+    --shadow:
+        0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   3. RESET & GLOBAL STYLES
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.6;
+
+    background-color:
+        var(--background-color);
+
+    color:
+        var(--text-color);
+
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+}
+
+
+img {
+
+    display: block;
+
+    max-width: 100%;
+
+    height: auto;
+}
+
+
+button,
+input,
+textarea {
+
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   4. ACCESSIBILITY - SKIP LINK
+========================================================= */
+
+.skip-link {
+
+    position: absolute;
+
+    left: -9999px;
+
+    top: 10px;
+
+    z-index: 9999;
+
+    padding: 10px 15px;
+
+    background-color:
+        var(--white);
+
+    color:
+        var(--black);
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 6px;
+}
+
+
+.skip-link:focus {
+
+    left: 10px;
+}
+
+
+/* =========================================================
+   5. ACCESSIBILITY - FOCUS
+========================================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+
+    outline:
+        3px solid var(--focus-color);
+
+    outline-offset:
+        3px;
+}
+
+
+/* =========================================================
+   6. HEADER
+========================================================= */
+
+.site-header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    padding:
+        16px 5%;
+
+    background:
+        linear-gradient(135deg,
+            var(--primary-color),
+            var(--secondary-color));
+
+    color:
+        var(--white);
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   7. NAVIGATION - FLEXBOX
+========================================================= */
+
+.main-nav {
+
+    max-width:
+        var(--max-width);
+
+    margin:
+        0 auto;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        14px;
+}
+
+
+.logo {
+
+    font-size:
+        clamp(1.3rem, 5vw, 2rem);
+
+    text-align:
+        center;
+
+    line-height:
+        1.2;
+}
+
+
+/* =========================================================
+   8. NAVIGATION LINKS
+========================================================= */
+
+.nav-links {
+
+    width:
+        100%;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    gap:
+        5px;
+
+    list-style:
+        none;
+}
+
+
+.nav-links li {
+
+    width:
+        100%;
+
+    text-align:
+        center;
+}
+
+
+.nav-links a {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    padding:
+        9px 14px;
+
+    color:
+        var(--white);
+
+    text-decoration:
+        none;
+
+    font-weight:
+        bold;
+
+    border-radius:
+        8px;
+
+    transition:
+        var(--transition);
+}
+
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+
+    background-color:
+        var(--white);
+
+    color:
+        var(--primary-color);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   9. DARK MODE BUTTON
+========================================================= */
+
+#themeToggle {
+
+    padding:
+        10px 16px;
+
+    border:
+        2px solid var(--white);
+
+    border-radius:
+        8px;
+
+    background:
+        transparent;
+
+    color:
+        var(--white);
+
+    font-size:
+        0.95rem;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
+    transition:
+        var(--transition);
+}
+
+
+#themeToggle:hover,
+#themeToggle:focus-visible {
+
+    background:
+        var(--white);
+
+    color:
+        var(--primary-color);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   10. MAIN CONTAINER
+========================================================= */
+
+main {
+
+    width:
+        min(100% - 24px, var(--max-width));
+
+    margin:
+        0 auto;
+
+    padding:
+        30px 0;
+}
+
+
+/* =========================================================
+   11. COMMON SECTION
+========================================================= */
+
+section {
+
+    margin-bottom:
+        25px;
+
+    padding:
+        25px 20px;
+
+    background:
+        var(--surface-color);
+
+    border:
+        1px solid var(--border-color);
+
+    border-radius:
+        var(--radius);
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+
+section:hover {
+
+    transform:
+        translateY(-4px);
+}
+
+
+/* =========================================================
+   12. HEADINGS
+========================================================= */
+
+h2 {
+
+    margin-bottom:
+        20px;
+
+    color:
+        var(--secondary-color);
+
+    font-size:
+        clamp(1.6rem, 6vw, 2.4rem);
+}
+
+
+h3 {
+
+    color:
+        var(--secondary-color);
+}
+
+
+/* =========================================================
+   13. PARAGRAPHS
+========================================================= */
+
+p {
+
+    color:
+        var(--muted-text);
+}
+
+
+/* =========================================================
+   14. HERO SECTION - CSS GRID
+========================================================= */
+
+.hero-section {
+
+    min-height:
+        55vh;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr;
+
+    place-items:
+        center;
+
+    text-align:
+        center;
+
+    padding:
+        40px 20px;
+}
+
+
+.hero-content {
+
+    max-width:
+        800px;
+}
+
+
+/* =========================================================
+   15. HERO HEADING
+========================================================= */
+
+#hero-heading {
+
+    margin-bottom:
+        20px;
+
+    font-size:
+        clamp(2rem, 10vw, 4rem);
+
+    line-height:
+        1.1;
+
+    background:
+        linear-gradient(135deg,
+            var(--secondary-color),
+            var(--accent-color));
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    -webkit-text-fill-color:
+        transparent;
+}
+
+
+/* =========================================================
+   16. HERO PARAGRAPH
+========================================================= */
+
+.hero-content p {
+
+    max-width:
+        700px;
+
+    margin:
+        0 auto 20px;
+
+    font-size:
+        clamp(1rem, 3vw, 1.2rem);
+}
+
+
+/* =========================================================
+   17. PRIMARY BUTTON
+========================================================= */
+
+.primary-button {
+
+    display:
+        inline-block;
+
+    padding:
+        12px 25px;
+
+    background:
+        linear-gradient(135deg,
+            var(--primary-color),
+            var(--secondary-color));
+
+    color:
+        var(--white);
+
+    text-decoration:
+        none;
+
+    font-weight:
+        bold;
+
+    border-radius:
+        8px;
+
+    transition:
+        var(--transition);
+}
+
+
+.primary-button:hover,
+.primary-button:focus-visible {
+
+    transform:
+        translateY(-4px) scale(1.03);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+/* =========================================================
+   18. SKILLS - CSS GRID
+========================================================= */
+
+.skills-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr;
+
+    gap:
+        15px;
+
+    list-style:
+        none;
+}
+
+
+/* =========================================================
+   19. SKILL CARDS
+========================================================= */
+
+.skills-grid li {
+
+    padding:
+        20px;
+
+    background:
+        var(--background-color);
+
+    color:
+        var(--text-color);
+
+    border:
+        1px solid var(--border-color);
+
+    border-radius:
+        var(--radius);
+
+    text-align:
+        center;
+
+    font-weight:
+        bold;
+
+    transition:
+        var(--transition);
+}
+
+
+.skills-grid li:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        var(--secondary-color);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+/* =========================================================
+   20. PROJECT GRID
+   Works with projects.html
+========================================================= */
+
+.project-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr;
+
+    gap:
+        20px;
+}
+
+
+/* =========================================================
+   21. PROJECT CARD - FLEXBOX
+========================================================= */
+
+.project-card {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
+
+    padding:
+        22px;
+
+    background:
+        var(--background-color);
+
+    border:
+        1px solid var(--border-color);
+
+    border-radius:
+        var(--radius);
+
+    transition:
+        var(--transition);
+}
+
+
+.project-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        var(--secondary-color);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.project-card h3 {
+
+    margin-bottom:
+        12px;
+}
+
+
+.project-card p {
+
+    margin-bottom:
+        20px;
+}
+
+
+/* =========================================================
+   22. PROJECT TECHNOLOGY TAGS - FLEXBOX
+========================================================= */
+
+.project-card ul {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px;
+
+    list-style:
+        none;
+}
+
+
+.project-card li {
+
+    padding:
+        6px 10px;
+
+    background:
+        var(--surface-color);
+
+    color:
+        var(--text-color);
+
+    border:
+        1px solid var(--border-color);
+
+    border-radius:
+        20px;
+
+    font-size:
+        0.85rem;
+}
+
+
+/* =========================================================
+   23. CONTACT FORM
+========================================================= */
+
+form {
+
+    width:
+        100%;
+
+    max-width:
+        700px;
+
+    margin:
+        0 auto;
+}
+
+
+form div {
+
+    margin-bottom:
+        18px;
+}
+
+
+label {
+
+    display:
+        block;
+
+    margin-bottom:
+        6px;
+
+    font-weight:
+        bold;
+}
+
+
+input,
+textarea {
+
+    width:
+        100%;
+
+    padding:
+        12px;
+
+    border:
+        2px solid var(--border-color);
+
+    border-radius:
+        8px;
+
+    background:
+        var(--surface-color);
+
+    color:
+        var(--text-color);
+
+    font-size:
+        1rem;
+
+    transition:
+        var(--transition);
+}
+
+
+input:focus,
+textarea:focus {
+
+    border-color:
+        var(--secondary-color);
+}
+
+
+textarea {
+
+    min-height:
+        150px;
+
+    resize:
+        vertical;
+}
+
+
+/* =========================================================
+   24. FORM BUTTON
+========================================================= */
+
+form button {
+
+    padding:
+        12px 25px;
+
+    border:
+        none;
+
+    border-radius:
+        8px;
+
+    background:
+        linear-gradient(135deg,
+            var(--primary-color),
+            var(--secondary-color));
+
+    color:
+        var(--white);
+
+    font-size:
+        1rem;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
+    transition:
+        var(--transition);
+}
+
+
+form button:hover,
+form button:focus-visible {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+/* =========================================================
+   25. SMALL TEXT
+========================================================= */
+
+small {
+
+    display:
+        block;
+
+    margin-top:
+        5px;
+
+    color:
+        var(--muted-text);
+}
+
+
+/* =========================================================
+   26. FOOTER
+========================================================= */
+
+.site-footer {
+
+    padding:
+        30px 5%;
+
+    background:
+        var(--primary-color);
+
+    color:
+        var(--white);
+
+    text-align:
+        center;
+}
+
+
+.site-footer p {
+
+    color:
+        var(--white);
+}
+
+
+/* =========================================================
+   27. TABLET - 768px+
+========================================================= */
+
+@media (min-width: 768px) {
+
+    .site-header {
+
+        padding:
+            18px 5%;
+    }
+
+
+    .main-nav {
+
+        flex-direction:
+            row;
+
+        justify-content:
+            space-between;
+
+        gap:
+            20px;
+    }
+
+
+    .logo {
+
+        text-align:
+            left;
+
+        flex-shrink:
+            0;
+    }
+
+
+    .nav-links {
+
+        width:
+            auto;
+
+        flex-direction:
+            row;
+
+        justify-content:
+            center;
+
+        flex-wrap:
+            wrap;
+
+        gap:
+            5px;
+    }
+
+
+    .nav-links li {
+
+        width:
+            auto;
+    }
+
+
+    .nav-links a {
+
+        width:
+            auto;
+    }
+
+
+    #themeToggle {
+
+        flex-shrink:
+            0;
+    }
+
+
+    main {
+
+        width:
+            min(100% - 40px, var(--max-width));
+
+        padding:
+            45px 0;
+    }
+
+
+    section {
+
+        padding:
+            35px;
+    }
+
+
+    .hero-section {
+
+        min-height:
+            65vh;
+
+        padding:
+            60px;
+    }
+
+
+    .skills-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .project-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   28. DESKTOP - 1024px+
+========================================================= */
+
+@media (min-width: 1024px) {
+
+    main {
+
+        padding:
+            60px 0;
+    }
+
+
+    section {
+
+        padding:
+            40px;
+    }
+
+
+    .hero-section {
+
+        min-height:
+            70vh;
+    }
+
+
+    .skills-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+
+    .project-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   29. LARGE DESKTOP - 1200px+
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    .skills-grid {
+
+        grid-template-columns:
+            repeat(6, 1fr);
+    }
+
+
+    .project-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   30. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior:
+            auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation:
+            none !important;
+
+        transition:
+            none !important;
+    }
+}
