@@ -1,0 +1,836 @@
+/* =========================================
+   GLOBAL CSS VARIABLES
+========================================= */
+
+:root {
+    --primary-color: #172554;
+    --secondary-color: #2563eb;
+    --accent-color: #7c3aed;
+
+    --background-color: #f7f9fc;
+    --surface-color: #ffffff;
+    --text-color: #1f2937;
+    --muted-text: #64748b;
+    --border-color: #dbe2ea;
+
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+    --radius: 12px;
+    --transition: 0.3s ease;
+}
+
+
+/* =========================================
+   DARK MODE VARIABLES
+========================================= */
+
+.dark-mode {
+    --background-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-color: #f8fafc;
+    --muted-text: #cbd5e1;
+    --border-color: #475569;
+
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   GLOBAL STYLES
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    line-height: 1.6;
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* =========================================
+   LINKS AND FOCUS
+========================================= */
+
+a {
+    color: var(--secondary-color);
+
+    transition: var(--transition);
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 3px solid #ffbf00;
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   SKIP LINK
+========================================= */
+
+body>a:first-child {
+    position: absolute;
+
+    left: -9999px;
+    top: 10px;
+
+    padding: 10px 15px;
+
+    background-color: #ffffff;
+    color: #000000;
+
+    z-index: 1000;
+}
+
+body>a:first-child:focus {
+    left: 10px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+    background: linear-gradient(135deg,
+            var(--primary-color),
+            var(--secondary-color));
+
+    color: #ffffff;
+
+    padding: 20px 5%;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+header h1 {
+    margin: 0;
+
+    font-size: clamp(1.4rem, 4vw, 2rem);
+
+    text-align: center;
+}
+
+
+/* =========================================
+   NAVIGATION - FLEXBOX
+========================================= */
+
+nav {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+nav ul {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+
+    color: #ffffff;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    padding: 8px 14px;
+
+    border-radius: 8px;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: #ffffff;
+
+    color: var(--primary-color);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   DARK MODE BUTTON
+========================================= */
+
+#themeToggle {
+    padding: 10px 16px;
+
+    border: 2px solid #ffffff;
+
+    border-radius: 8px;
+
+    background-color: transparent;
+
+    color: #ffffff;
+
+    font-size: 0.95rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+#themeToggle:hover,
+#themeToggle:focus {
+    background-color: #ffffff;
+
+    color: var(--primary-color);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+main {
+    width: min(100% - 32px, 1200px);
+
+    margin: 0 auto;
+
+    padding: 40px 0;
+}
+
+
+/* =========================================
+   GENERAL SECTION
+========================================= */
+
+section {
+    background-color: var(--surface-color);
+
+    margin-bottom: 30px;
+
+    padding: 30px;
+
+    border-radius: var(--radius);
+
+    border: 1px solid var(--border-color);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+section:hover {
+    transform: translateY(-4px);
+}
+
+
+/* =========================================
+   HEADINGS
+========================================= */
+
+h2 {
+    margin-top: 0;
+
+    color: var(--secondary-color);
+
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+h3 {
+    color: var(--secondary-color);
+}
+
+
+/* =========================================
+   PARAGRAPHS
+========================================= */
+
+p {
+    color: var(--muted-text);
+}
+
+
+/* =========================================
+   GENERAL LIST
+========================================= */
+
+li {
+    margin-bottom: 8px;
+}
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+section[aria-labelledby="hero-heading"] {
+    min-height: 60vh;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    align-items: center;
+
+    justify-items: center;
+
+    text-align: center;
+
+    padding: 50px 25px;
+}
+
+
+/* =========================================
+   HERO HEADING
+========================================= */
+
+#hero-heading {
+    font-size: clamp(2rem, 7vw, 4rem);
+
+    background: linear-gradient(135deg,
+            var(--secondary-color),
+            var(--accent-color));
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================
+   HERO PARAGRAPH
+========================================= */
+
+section[aria-labelledby="hero-heading"] p {
+    max-width: 700px;
+
+    font-size: clamp(1rem, 2vw, 1.2rem);
+
+    color: var(--muted-text);
+}
+
+
+/* =========================================
+   HERO PROJECT BUTTON
+========================================= */
+
+section[aria-labelledby="hero-heading"] a {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 12px 25px;
+
+    background: linear-gradient(135deg,
+            var(--primary-color),
+            var(--secondary-color));
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 8px;
+
+    transition: var(--transition);
+}
+
+section[aria-labelledby="hero-heading"] a:hover,
+section[aria-labelledby="hero-heading"] a:focus {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================
+   SKILLS GRID
+========================================= */
+
+section[aria-labelledby="skills-heading"] ul {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+}
+
+
+/* =========================================
+   SKILL CARDS
+========================================= */
+
+section[aria-labelledby="skills-heading"] li {
+    margin: 0;
+
+    padding: 20px;
+
+    background-color: var(--background-color);
+
+    color: var(--text-color);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius);
+
+    font-weight: bold;
+
+    text-align: center;
+
+    transition: var(--transition);
+}
+
+section[aria-labelledby="skills-heading"] li:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--secondary-color);
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================
+   PROJECT GRID
+========================================= */
+
+.project-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+}
+
+
+/* =========================================
+   PROJECT CARD
+========================================= */
+
+.project-card {
+    padding: 25px;
+
+    background-color: var(--background-color);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+
+    border-color: var(--secondary-color);
+
+    box-shadow: var(--shadow);
+}
+
+.project-card h3 {
+    margin-top: 0;
+
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   PROJECT TECHNOLOGIES
+========================================= */
+
+.project-card ul {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+}
+
+.project-card li {
+    margin: 0;
+
+    padding: 6px 10px;
+
+    background-color: var(--surface-color);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 20px;
+
+    font-size: 0.85rem;
+
+    color: var(--text-color);
+}
+
+
+/* =========================================
+   GENERAL BUTTONS
+========================================= */
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================
+   CONTACT FORM
+========================================= */
+
+form {
+    max-width: 700px;
+
+    margin: auto;
+}
+
+form div {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 2px solid var(--border-color);
+
+    border-radius: 8px;
+
+    font: inherit;
+
+    background-color: var(--surface-color);
+
+    color: var(--text-color);
+
+    transition: var(--transition);
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--secondary-color);
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+/* =========================================
+   CONTACT FORM BUTTON
+========================================= */
+
+form button {
+    padding: 12px 25px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: linear-gradient(135deg,
+            var(--primary-color),
+            var(--secondary-color));
+
+    color: #ffffff;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+form button:hover,
+form button:focus {
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================
+   SMALL TEXT
+========================================= */
+
+small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--muted-text);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    padding: 30px 5%;
+
+    background-color: var(--primary-color);
+
+    color: #ffffff;
+
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+
+    color: #ffffff;
+}
+
+
+/* =========================================
+   MOBILE - UP TO 767px
+========================================= */
+
+@media (max-width: 767px) {
+
+    header {
+        padding: 15px 4%;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    nav ul {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 5px;
+    }
+
+    nav li {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    nav a {
+        width: 100%;
+    }
+
+    #themeToggle {
+        width: 100%;
+
+        max-width: 220px;
+    }
+
+    main {
+        width: min(100% - 20px, 1200px);
+
+        padding: 25px 0;
+    }
+
+    section {
+        padding: 25px 20px;
+    }
+
+    section[aria-labelledby="hero-heading"] {
+        min-height: 55vh;
+
+        padding: 40px 20px;
+    }
+
+    section[aria-labelledby="skills-heading"] ul {
+        grid-template-columns: 1fr;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+}
+
+
+/* =========================================
+   TABLET - 768px AND ABOVE
+========================================= */
+
+@media (min-width: 768px) {
+
+    nav {
+        flex-direction: row;
+
+        justify-content: space-between;
+    }
+
+    nav ul {
+        flex: 1;
+
+        justify-content: center;
+    }
+
+    section[aria-labelledby="hero-heading"] {
+        min-height: 65vh;
+
+        padding: 70px;
+    }
+
+    section[aria-labelledby="skills-heading"] ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================
+   DESKTOP - 1024px AND ABOVE
+========================================= */
+
+@media (min-width: 1024px) {
+
+    main {
+        padding: 60px 0;
+    }
+
+    section {
+        padding: 40px;
+    }
+
+    section[aria-labelledby="hero-heading"] {
+        min-height: 70vh;
+    }
+
+    section[aria-labelledby="skills-heading"] ul {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================
+   LARGE DESKTOP - 1200px AND ABOVE
+========================================= */
+
+@media (min-width: 1200px) {
+
+    section[aria-labelledby="skills-heading"] ul {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+
+        animation: none !important;
+    }
+}
